@@ -2,11 +2,14 @@
 "use client";
 import { useState } from "react";
 import ChatBubble from "./ChatBubble";
+import TypingBubble from "./TypingBubble";
 
 export default function ChatbotUI() {
   const [messages, setMessages] = useState<
     { message: string; isUser: boolean }[]
-  >([{ message: "Halo! Ada yang bisa saya bantu?", isUser: false }]);
+  >([
+    { message: "Hi There..! Theres something i can help with?", isUser: false },
+  ]);
   const [userInput, setUserInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -81,7 +84,7 @@ export default function ChatbotUI() {
         {messages.map((msg, index) => (
           <ChatBubble key={index} message={msg.message} isUser={msg.isUser} />
         ))}
-        {isLoading && <ChatBubble message="Mengetik..." isUser={false} />}
+        {isLoading && <TypingBubble />}
         {error && ( // Tampilkan pesan error
           <ChatBubble message={`Error: ${error}`} isUser={false} />
         )}

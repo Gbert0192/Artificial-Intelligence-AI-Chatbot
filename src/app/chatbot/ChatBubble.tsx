@@ -90,7 +90,7 @@ function parseMessage(message: string) {
 }
 
 function parseInlineCodeAndBold(text: string) {
-  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g);
+  const parts = text.split(/(`[^`]+`|\*\*.+?\*\*)/g);
 
   return parts.map((part, idx) => {
     if (part.startsWith("`") && part.endsWith("`")) {
