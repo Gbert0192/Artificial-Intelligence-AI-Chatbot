@@ -78,7 +78,7 @@ export default function ChatbotUI() {
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="bg-black text-white px-4 py-3 text-xl font-semibold shadow">
-        Chatbot
+        Chatbot By An Jing
       </div>
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-4 bg-gray-50">
         {messages.map((msg, index) => (
@@ -92,7 +92,7 @@ export default function ChatbotUI() {
       <div className="border-t px-4 py-3 flex items-center gap-2">
         <input
           type="text"
-          placeholder="Ketik pesan..."
+          placeholder="Type your message..."
           className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-black"
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
@@ -104,7 +104,7 @@ export default function ChatbotUI() {
           onClick={handleSendMessage}
           disabled={isLoading || userInput.trim() === ""} // Nonaktifkan tombol saat loading atau input kosong
         >
-          {isLoading ? "Mengirim..." : "Kirim"}
+          {isLoading ? "Sending..." : "Send"}
         </button>
       </div>
     </div>
